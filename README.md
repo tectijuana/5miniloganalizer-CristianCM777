@@ -1,7 +1,11 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/QtRYN9D3)
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=23648295)
+# Práctica Mini Cloud Log
 
-# Práctica 1
+**Camarillo MOlina Cristian**
+**23210553**
+
+**Lenguajes de interfaz**
+
+**Rene Solis Reyes**
 
 ## Implementación de un Mini Cloud Log Analyzer en ARM64
 
@@ -13,9 +17,11 @@
 
 ## Introducción
 
-Los sistemas modernos de cómputo en la nube generan continuamente registros (*logs*) que permiten monitorear el estado de servicios, detectar fallas y activar alertas ante eventos críticos.
+En esta práctica se desarrolla un Mini Cloud Log Analyzer utilizando ensamblador ARM64 (AArch64) en un entorno Linux, con el objetivo de comprender el funcionamiento de bajo nivel de un sistema de análisis de datos sin el uso de bibliotecas externas como libc. El programa procesa entradas provenientes de la entrada estándar (stdin), donde se reciben códigos HTTP línea por línea, y los clasifica mediante el uso de syscalls del sistema operativo.
 
-En esta práctica se desarrollará un módulo simplificado de análisis de logs, implementado en **ARM64 Assembly**, inspirado en tareas reales de monitoreo utilizadas en sistemas cloud, observabilidad y administración de infraestructura.
+El enfoque principal de la práctica es reforzar el entendimiento de la arquitectura ARM64, el manejo directo de memoria, el uso de registros del procesador y la implementación de lógica condicional en ensamblador. Además, se integra el flujo de trabajo con herramientas como GNU Make y Bash para automatizar la compilación y ejecución del programa.
+
+En esta variante en particular, se implementa la detección de tres errores consecutivos dentro de una secuencia de códigos HTTP, así como el almacenamiento y posterior visualización de los códigos de error encontrados, permitiendo analizar el comportamiento del sistema ante fallos en servidores o clientes.
 
 El programa procesará códigos de estado HTTP suministrados mediante entrada estándar (stdin):
 
@@ -27,7 +33,13 @@ cat logs.txt | ./analyzer
 
 ## Objetivo general
 
-Diseñar e implementar, en lenguaje ensamblador ARM64, una solución para procesar registros de eventos y detectar condiciones definidas según la variante asignada.
+DEl programa:
+1. Lee datos desde stdin usando syscall read
+2. Convierte bytes a números enteros
+3. Clasifica códigos HTTP
+4. Detecta errores consecutivos
+5. Almacena errores en un arreglo en memoria
+6. Imprime resultados con syscall write
 
 ---
 
@@ -49,58 +61,16 @@ Estos temas se alinean con contenidos clásicos de flujo de control, herramienta
 
 ---
 
-## Material proporcionado
-
-Se entregará un repositorio preconfigurado que contiene:
-
-* plantilla base en ARM64
-* archivo `Makefile`
-* script Bash de ejecución
-* archivo de datos (`logs.txt`)
-* pruebas iniciales
-* secciones marcadas con `TODO`
-
-El estudiante deberá completar la lógica correspondiente.
-
----
-
-## Variantes de la práctica
-
-### Variante A
-
-Contabilizar:
-
-* respuestas exitosas (2xx)
-* errores del cliente (4xx)
-* errores del servidor (5xx)
-
----
-
-### Variante B
-
-Determinar el código de estado más frecuente.
-
----
-
-### Variante C
-
-Detectar el primer evento crítico (503).
-
----
+## Variantes de la práctica aplicada
 
 ### Variante D
 
 Detectar tres errores consecutivos.
 
----
-
-### Variante E
-
-Calcular índice de salud:
-
-```text id="2u4vvx"
-Health Score = 100 - (errores × 10)
-```
+- Lee códigos HTTP línea por línea
+- Clasifica errores 4xx y 5xx
+- Detecta si existen 3 errores consecutivos
+- Guarda y muestra todos los códigos de error
 
 ---
 
