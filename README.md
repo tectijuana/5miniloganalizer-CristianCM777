@@ -76,64 +76,10 @@ Detectar tres errores consecutivos.
 
 ## Asciinema de la practica
 https://asciinema.org/connect/db404648-89e6-4d57-847e-8b5aa200b6f3
-## Compilación
 
-```bash id="bmubtb"
-make
-```
+## Conclusion
+El desarrollo del Mini Cloud Log Analyzer permitió comprender de manera práctica el funcionamiento de la programación a bajo nivel utilizando ensamblador ARM64 en un entorno Linux. A través del uso exclusivo de syscalls, se logró implementar un sistema capaz de procesar entradas de datos desde la entrada estándar, analizar códigos HTTP y realizar operaciones de clasificación sin depender de bibliotecas externas.
 
----
+Durante la implementación de la variante asignada, se reforzaron conceptos fundamentales como el manejo de registros, el control del flujo mediante instrucciones de salto, y la manipulación directa de memoria. Además, se integraron herramientas de automatización como Bash y Make, lo que facilitó la compilación, ejecución y pruebas del programa de forma estructurada.
 
-## Ejecución
-
-```bash id="gcqlf2"
-cat logs.txt | ./analyzer
-```
-
----
-
-## Entregables
-
-Cada estudiante deberá entregar en su repositorio:
-
-* archivo fuente ARM64 funcional
-* solución implementada
-* README explicando diseño y lógica utilizada
-* evidencia de ejecución
-* commits realizados en GitHub Classroom
-
----
-
-## Criterios de evaluación
-
-| Criterio                    | Ponderación |
-| --------------------------- | ----------- |
-| Compilación correcta        | 20%         |
-| Correctitud de la solución  | 35%         |
-| Uso adecuado de ARM64       | 25%         |
-| Documentación y comentarios | 10%         |
-| Evidencia de pruebas        | 10%         |
-
----
-
-## Restricciones
-
-No está permitido:
-
-* resolver la lógica en C
-* resolver la lógica en Python
-* modificar la variante asignada
-* omitir el uso de ARM64 Assembly
-
----
-
-## Competencia a desarrollar
-
-Comprender cómo un problema de procesamiento de datos es implementado a nivel máquina mediante instrucciones ARM64.
-
----
-
-## Nota
-
-Aunque este problema puede resolverse fácilmente en lenguajes de alto nivel, el propósito de la práctica es implementar **cómo lo resolvería la arquitectura**, no únicamente obtener el resultado.
-
+Finalmente, esta práctica permitió simular un escenario real de análisis de logs en sistemas tipo servidor, fortaleciendo habilidades en arquitectura de computadoras, depuración de bajo nivel y desarrollo de software eficiente sin abstracciones de alto nivel.
