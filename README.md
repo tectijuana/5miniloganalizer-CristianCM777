@@ -75,7 +75,7 @@ Detectar tres errores consecutivos.
 ---
 
 ## Asciinema de la practica
-
+https://asciinema.org/connect/db404648-89e6-4d57-847e-8b5aa200b6f3
 ## Compilación
 
 ```bash id="bmubtb"
