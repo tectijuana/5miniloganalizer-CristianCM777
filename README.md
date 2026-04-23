@@ -74,6 +74,8 @@ Detectar tres errores consecutivos.
 
 ---
 
+## Asciinema de la practica
+
 ## Compilación
 
 ```bash id="bmubtb"
